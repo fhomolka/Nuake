@@ -77,6 +77,11 @@ project "Nuake"
         cppdialect "C++17"
         staticruntime "On"
 
+	filter "system:linux"
+        cppdialect "C++17"
+        staticruntime "On"
+
+
     filter "configurations:Debug"
         runtime "Debug"
         symbols "on"
@@ -141,6 +146,10 @@ project "Editor"
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
+	
+	filter "system:linux"
+		cppdialect "C++17"
+		staticruntime "On"
 
     filter "configurations:Debug"
         runtime "Debug"
