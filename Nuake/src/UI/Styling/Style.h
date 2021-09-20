@@ -121,7 +121,11 @@ namespace Nuake
 			if (Props.find(type) != Props.end())
 				return Props[type];
 
-			return PropValue();
+			// NOTE(fhomolka): slightly evil, and long-winded, since gcc disallows for one-liners like this
+			// Use Smart Shared object?
+			PropValue newProp = PropValue{};
+
+			return newProp;
 		}
 
 		bool HasProp(PropType type)
