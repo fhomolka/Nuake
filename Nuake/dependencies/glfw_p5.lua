@@ -41,6 +41,30 @@ project "GLFW"
             "_GLFW_WIN32",
         }
 
+    filter "system:linux"
+        systemversion "latest"
+
+        files
+        {
+            "glfw/src/x11_init.c",
+            "glfw/src/linux_joystick.c",
+            "glfw/src/x11_monitor.c",
+            --"glfw/src/x11_time.c", -- NOTE(fhomolka): for whatever reason, GLFW removed this
+            "glfw/src/posix_time.c", -- NOTE(fhomolka): for whatever reason, GLFW removed this
+            "glfw/src/posix_thread.c",
+            "glfw/src/x11_window.c",
+            --"glfw/src/wgl_context.c",
+            "glfw/src/glx_context.c",
+            "glfw/src/egl_context.c",
+            "glfw/src/osmesa_context.c"
+        }
+
+        defines
+        {
+            "_GLFW_X11", --NOTE(fhomolka): Wayland is still experimental, use X11 only
+        }
+
+
     filter "configurations:Debug"
         runtime "Debug"
         symbols "on"
